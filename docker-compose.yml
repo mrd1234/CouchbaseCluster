@@ -15,7 +15,9 @@ services:
         environment:
             CLUSTER_HOST: "CouchBaseNode1"
             NETWORK: "couchbase-net"
-    
+            #SERVICES: "kv,n1ql,index,fts"
+            SERVICES: "kv"
+
     couchbasenode2:
         build: ./couchbase
         hostname: CouchBaseNode2
@@ -31,7 +33,8 @@ services:
         environment:
             CLUSTER_HOST: "CouchBaseNode1"
             NETWORK: "couchbase-net"
-            
+            SERVICES: "kv"
+
     couchbasenode3:
         build: ./couchbase
         hostname: CouchBaseNode3
@@ -47,7 +50,8 @@ services:
         environment:
             CLUSTER_HOST: "CouchBaseNode1"
             NETWORK: "couchbase-net"
-            
+            SERVICES: "kv"
+
     couchbasenode4:
         build: ./couchbase
         hostname: CouchBaseNode4
@@ -63,6 +67,7 @@ services:
         environment:
             CLUSTER_HOST: "CouchBaseNode1"
             NETWORK: "couchbase-net"
+            SERVICES: "kv"
             CLUSTER_REBALANCE: "true"
             
 networks:

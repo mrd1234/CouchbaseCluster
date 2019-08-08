@@ -44,6 +44,7 @@ IP=`hostname -I | cut -d ' ' -f1`
 
 FULL_HOSTNAME=${HOSTNAME}.${NETWORK}
 
+echo "HOSTNAME: " $HOSTNAME
 echo "HOSTNAME: " $FULL_HOSTNAME
 echo "IP: " $IP
 
@@ -53,7 +54,7 @@ curl "http://$FULL_HOSTNAME:8091/node/controller/rename" -d hostname=$FULL_HOSTN
 # Reset steps
 i=1
 # Configure
-numbered_echo "Initialize the node " ${HOSTNAME}
+numbered_echo "Initialize the node" ${HOSTNAME}
 curl --silent "http://$FULL_HOSTNAME:8091/nodes/self/controller/settings" \
   -d path="/opt/couchbase/var/lib/couchbase/data" \
   -d index_path="/opt/couchbase/var/lib/couchbase/data"
