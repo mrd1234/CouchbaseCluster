@@ -1,0 +1,23 @@
+FROM couchbase:enterprise-6.0.1
+
+ENV MEMORY_QUOTA 1000
+ENV INDEX_MEMORY_QUOTA 256
+ENV FTS_MEMORY_QUOTA 256
+
+#ENV SERVICES "kv,n1ql,index,fts"
+ENV SERVICES "kv"
+
+ENV DEFAULT_USERNAME "Administrator"
+ENV DEFAULT_PASSWORD "password"
+
+ENV USERNAME "admin"
+ENV PASSWORD "password"
+
+COPY buckets.txt /buckets.txt
+COPY create_buckets.sh /create_buckets.sh
+COPY config_couchbase.sh /config_couchbase.sh
+
+RUN chmod +x /create_buckets.sh
+RUN chmod +x /config_couchbase.sh
+
+ENTRYPOINT ["/config_couchbase.sh"]

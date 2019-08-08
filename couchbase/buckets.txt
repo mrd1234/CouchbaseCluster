@@ -1,0 +1,4 @@
+BUCKET NAME,USERNAME,BUCKET TYPE,REPLICAS
+couchbase_bucket,couchbase_bucket_user,couchbase,0
+ephemeral_bucket,ephemeral_bucket_user,ephemeral,3
+memcached_bucket,memcached_bucket_user,memcached,0

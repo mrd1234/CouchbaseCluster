@@ -1,0 +1,71 @@
+version: '3.6'
+services:
+    couchbasenode1:
+        build: ./couchbase
+        hostname: CouchBaseNode1
+        container_name: CouchBaseNode1
+        restart: unless-stopped
+        networks: 
+            - couchbase
+        ports:
+            - "9191:8091"
+            - "9192:8092"
+            - "9193:8093"
+            - "9194:8094"
+        environment:
+            CLUSTER_HOST: "CouchBaseNode1"
+            NETWORK: "couchbase-net"
+    
+    couchbasenode2:
+        build: ./couchbase
+        hostname: CouchBaseNode2
+        container_name: CouchBaseNode2
+        restart: unless-stopped
+        networks: 
+            - couchbase
+        ports:
+            - "9291:8091"
+            - "9292:8092"
+            - "9293:8093"
+            - "9294:8094"            
+        environment:
+            CLUSTER_HOST: "CouchBaseNode1"
+            NETWORK: "couchbase-net"
+            
+    couchbasenode3:
+        build: ./couchbase
+        hostname: CouchBaseNode3
+        container_name: CouchBaseNode3
+        restart: unless-stopped
+        networks: 
+            - couchbase
+        ports:
+            - "9391:8091"
+            - "9392:8092"
+            - "9393:8093"
+            - "9394:8094"
+        environment:
+            CLUSTER_HOST: "CouchBaseNode1"
+            NETWORK: "couchbase-net"
+            
+    couchbasenode4:
+        build: ./couchbase
+        hostname: CouchBaseNode4
+        container_name: CouchBaseNode4
+        restart: unless-stopped
+        networks: 
+            - couchbase
+        ports:
+            - "9491:8091"
+            - "9492:8092"
+            - "9493:8093"
+            - "9494:8094"
+        environment:
+            CLUSTER_HOST: "CouchBaseNode1"
+            NETWORK: "couchbase-net"
+            CLUSTER_REBALANCE: "true"
+            
+networks:
+  couchbase:
+    name: couchbase-net
+    driver: bridge
