@@ -35,7 +35,7 @@ Edit the SERVICES variable in the docker-compose.yml file putting desired servic
 where
 
 * kv = the data service (key value data store)
-* n1q1 = the query service (allows you to run sql like queries)
+* n1ql = the query service (allows you to run sql like queries)
 * index = index service - pretty sure you need this to run n1ql queries
 * fts = full test search service
 
