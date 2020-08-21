@@ -37,7 +37,7 @@ where
 * kv = the data service (key value data store)
 * n1ql = the query service (allows you to run sql like queries)
 * index = index service - pretty sure you need this to run n1ql queries
-* fts = full test search service
+* fts = full text search service
 
 Refer to couchbase docs for recommended distribution of different services across cluster nodes.
 
